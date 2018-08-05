@@ -1,18 +1,18 @@
 package com.ManaLytics.BackendManaLytics.DTO;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Products_Table")
-public class ProductDTO implements Serializable{
+@Table(name="Bill_Products_Table")
+public class BillProductDTO {
 	@Id
-	@GeneratedValue
-	Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long billprodid;
+	private Long id;
 	private String pname;
 	private float Pqvalue;
 	private String pqtype;
@@ -67,11 +67,11 @@ public class ProductDTO implements Serializable{
 		this.pdescrp = pdescrp;
 	}
 
-	public ProductDTO() {
+	public BillProductDTO() {
 
 	}
 
-	public ProductDTO(Long id, String pname, float pquantity, String pqtype, float pcost, String purl, String pdescrp) {
+	public BillProductDTO(Long id, String pname, int pquantity, String pqtype, float pcost, String purl, String pdescrp) {
 		super();
 		this.id = id;
 		this.pname = pname;
@@ -92,7 +92,9 @@ public class ProductDTO implements Serializable{
 
 	@Override
 	public String toString() {
-		return "ProductDTO [id=" + id + ", pname=" + pname + ", Pqvalue=" + Pqvalue + ", pqtype=" + pqtype + ", pcost="
+		return "BillProductDTO [id=" + id + ", pname=" + pname + ", Pqvalue=" + Pqvalue + ", pqtype=" + pqtype + ", pcost="
 				+ pcost + ", purl=" + purl + ", pdescrp=" + pdescrp + "]";
 	}
+
+
 }
